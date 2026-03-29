@@ -1,0 +1,32 @@
+<h2>My Heroes</h2>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
+    <span class="badge">{{ hero.id }}</span>
+    {{ hero.name | removeSpaces }}
+  </li>
+</ul>
+
+<div *ngIf="selectedHero">
+  <h3>{{ selectedHero.name | removeSpaces }} Details</h3>
+
+  <p><strong>ID:</strong> {{ selectedHero.id }}</p>
+  <p><strong>Name:</strong> {{ selectedHero.name | removeSpaces }}</p>
+
+  <label for="hero-name">Edit Name: </label>
+  <input
+    id="hero-name"
+    [(ngModel)]="selectedHero.name"
+    placeholder="name"
+  >
+</div>
+
+<hr>
+
+<h3>Directive Demo</h3>
+
+<input
+  type="text"
+  appInputFormat
+  placeholder="Type here and click outside"
+/>
